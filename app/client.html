@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Client</title>
+    <!-- Bootstrap core CSS -->
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <!-- Custom fonts for this template -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse bg-inverse">
+      <a class="navbar-brand text-white" href="/">
+        Client
+      </a>
+    </nav>
+
+    <!-- Header -->
+    <header class="intro-header">
+      <div class="container">
+        <div class="intro-message">
+          <div class="row">
+            <!-- New Loan Form : Default Style Hidden -->
+            <div class="col-sm-12">
+           
+                <form>
+             
+                  <input type="file" id="file_id">
+                  <hr class="intro-divider">
+
+                  <input type="button" value="readAsText" class="btn btn-danger" onclick="showDataByText();">
+                  <div id="result"> </div>
+             
+
+                  <input type="button" value="sliceData" onclick="sliceData();">
+                  <div id="sliceData"></div>       
+
+                  <input type="button" value="merkleLeaves"  onclick="hashData()">
+                  <div id="hashData"> </div>
+                
+                 <input type="button" value="publicTree"  onclick="avePublicTree()">
+                  <div id="publicTree"> </div>
+
+                  <input type="button" value="merkleRoot"  onclick="merkleRoot()">
+                  <div id="merkleRoot"> </div>
+                  <hr class="intro-divider">
+
+                  <!-- <label>MerkleRoot</label> <div id="MerkleRoot"> </div>
+                  <input type="button" value="process"  class="btn btn-danger" onclick="MerkleRoot()"> -->       
+                  <hr class="intro-divider">
+
+                  <label>Challenge</label>
+                  <input type="text" class="form-control" id="Challenge_num" placeholder="The num of File to verify" value="">
+                  <div id="Preleaves" > </div>
+                  <input type="button" value="Preleaves"  onclick="getPreleaves()" >
+                   
+                  <div id="AuxiliaryPath" > </div>
+                  <input type="button" value="Auxiliary path"  onclick="avegetAuxiliarypath()" >
+                   
+                  <input type="button" value="Request"  onclick="sendrequest()" >
+                  <hr class="intro-divider">
+      <!--             <button type="submit" class="btn btn-success">uploading</button>
+                   -->
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </header>
+  </body>
+
+  <script src="//unpkg.com/crypto-js/crypto-js.js"></script>
+  <script src="/jquery-3.1.1.min.js"></script>
+  <script src="/jquery.cookie.js"></script>  
+  <script src="/popper.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+<script>
+function sendrequest() {
+    var challenge = document.getElementById("Challenge_num");
+    var preleaves = document.getElementById("Preleaves").innerHTML;
+    var auxiliarypath = document.getElementById("AuxiliaryPath").innerHTML;　 
+    var publictree = document.getElementById("publicTree").innerHTML;　 
+    $.cookie("challenge",challenge.value); 
+    $.cookie("preleaves",preleaves); 
+    $.cookie("auxiliarypath",auxiliarypath); 
+    $.cookie("publictree",publictree); 
+
+    var h1=0;
+    var publicTree=[];
+     while(h1<publictree.length){   //将数据树转换成数组
+      publicTree.push(publictree.substr(h1,64));
+      h1+=65;
+    }
+    $.cookie("publictreelength",publicTree.length); 
+    console.log($.cookie("publictreelength"));
+}
+
+
+function avePublicTree(){
+    var cost=0;
+    for(var i=0;i<100;i++){
+
+      cost+=publicTree();
+      
+    }  
+    console.log("the average publictree cost is " + (cost/100));
+}
+
+
+function avegetAuxiliarypath(){
+  var cost=0;
+    for(var i=0;i<100;i++){
+
+      cost+=getAuxiliarypath();
+      
+    }  
+    console.log("the average Auxiliarypath cost is " + (cost/100));
+}
+
+</script>
+<!-- <script src="client2.js"></script> -->
+<!--   <script src="client4.js"></script> -->
+   <script src="client8.js"></script>
+</html>

@@ -7,6 +7,16 @@ module.exports = {
     borrower: './app/javascripts/borrower.js',
     lender: './app/javascripts/lender.js',
     verify: './app/javascripts/verify.js',
+    verify1: './app/javascripts/verify1.js',
+    verify2: './app/javascripts/verify2.js', 
+    verify8: './app/javascripts/verify8.js', 
+    verify4: './app/javascripts/verify4.js',   
+    verifyroot: './app/javascripts/verifyroot.js',
+    client2: './app/javascripts/client2.js',
+    client8: './app/javascripts/client8.js',
+    client4: './app/javascripts/client4.js',
+    servers: './app/javascripts/servers.js',
+    cloud: './app/javascripts/cloud.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -18,7 +28,14 @@ module.exports = {
       { from: './app/index.html', to: "index.html" },
       { from: './app/borrower.html', to: "borrower.html" },
       { from: './app/lender.html', to: "lender.html" },
-      { from: './app/verify.html', to: "verify.html" }
+      { from: './app/client.html', to: "client.html" },
+      { from: './app/verify.html', to: "verify.html" },
+      { from: './app/servers.html', to: "servers.html" },
+      { from: './app/cloud.html', to: "cloud.html" },
+      { from: './app/lib/jquery-3.1.1.slim.min.js', to: "jquery-3.1.1.min.js" },
+      { from: './app/lib/jquery.cookie.js', to: "jquery.cookie.js" },
+      { from: './app/lib/bootstrap.min.js', to: "bootstrap.min.js" },
+      { from: './app/lib/popper.min.js', to: "popper.min.js" }
     ])
   ],
   module: {
