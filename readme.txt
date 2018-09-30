@@ -1,5 +1,9 @@
-运行说明
+查看是否安装了testrpc 
+testrpc -v
+若未安装，则运行以下命令进行安装
+sudo npm install -g ethereumjs-testrpc
 
+运行说明
 调整client.html和servers.html页面的<script>里面js文件，client2.js/client4.js，verify2.js/verify4.js，选择是Merkle tree的二叉树还是四叉树模式。
 
 启动：
@@ -11,6 +15,8 @@ npm run dev
 http://localhost:8080/
 4、若修改了智能合约，则退出项目运行，在项目目录执行以下命令重新发布合约，在执行第二步的命令，运行项目
 truffle migrate --reset
+5、若修改了前端代码，则重新执行第二步
+npm run dev
 
 验证某个数据片：
 1、进入client页面，在Challenge部分，先输入要验证第几个数据片，然后依次点击三个按钮，将信息传到Servers
