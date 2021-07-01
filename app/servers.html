@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Verify Mortgage - Crowd Bank</title>
+    <title>服务端</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Custom fonts for this template -->
@@ -21,7 +21,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-inverse bg-inverse">
       <a class="navbar-brand text-white" href="/">
-        Crowd Bank
+        服务端
       </a>
     </nav>
 
@@ -29,7 +29,6 @@
     <header class="intro-header">
       <div class="container">
         <div class="intro-message text-center" style="margin-top:10px;">
-          <h2>Welcome to Crowd Bank - Central Mortgage Verification System</h2>
           <!--<h4></h4>-->
           <hr class="intro-divider">
           <div class="row text-center">
@@ -37,51 +36,40 @@
             <div class="col-sm-6">
 <!--               <input type="text" class="form-control" id="file-hash" name="hash" placeholder="Hash of File to verify" value="">
             -->
-              <input type="button" value="Verify Now"  onclick="verifyData()" >
+              <input type="button" value="验证完整性"  onclick="verifyData()" >
+              <input type="button" value="破坏数据"  onclick="modifyRoot()" >
 
             </div>
             </div>
           </div>
           <hr class="intro-divider">
-          <input type="text" class="form-control" id="verify-result"  placeholder="The result of File verify" value="">
-
+          <textarea rows="30" class="form-control" id="verify-result" placeholder=""></textarea>
 
           <hr class="intro-divider">
-          
+
 
         </div>
       </div>
     </header>
   </body>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.108/pdf.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
- 
+
   <script src="//unpkg.com/crypto-js/crypto-js.js"></script>
-  <script src="/jquery-3.1.1.min.js"></script>
-  <script src="/jquery.cookie.js"></script>  
+  <script src="/jquery-3.6.0.min.js"></script>
+  <script src="/jquery.cookie.js"></script>
   <script src="/popper.min.js"></script>
   <script src="/bootstrap.min.js"></script>
 
 <!--<script src="verify8.js"></script>-->
 <!-- <script src="verify4.js"></script> -->
- <script src="verify2.js"></script> 
+ <script src="verify2.js"></script>
 <!-- <script src="verifyroot.js"></script> -->
 <!-- <script src="cloud.js"></script> -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    var cost=0;
-    for(var i=0;i<100;i++){
 
-      cost+=verifyData();
-      
-    }  
-    console.log("the average cost is " + (cost/100));
-  });
-  
-</script>
 
 
 
